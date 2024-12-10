@@ -1,1 +1,1 @@
-This repository contains a python file for a simple linear trajectory prediction using OpenCV color detection tools.
+This repository contains code and projects for a basilar air hockey bot.
