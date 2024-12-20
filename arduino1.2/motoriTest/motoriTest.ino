@@ -40,7 +40,6 @@ void setup() {
   stepper1.setAcceleration(motorAccel);
   stepper2.setAcceleration(motorAccel);
 
-  // Aspetta fino a che i dati arrivano dalla seriale
   while (!Serial.available()) {
   }
 
@@ -52,16 +51,13 @@ void setup() {
   start_x = sX.toInt();
   start_y = sY.toInt();
 
-  // Muove i motori
   moveMotors(start_x, start_y);
   
-  // Continua a muovere i motori fino a quando non raggiungono la posizione
   while (stepper1.isRunning() || stepper2.isRunning()) {
     stepper1.run();
     stepper2.run();
   }
 
-  // Indica che il setup è terminato
   Serial.println("ready");
 }
 
