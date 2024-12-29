@@ -433,7 +433,6 @@ def calculateTCross(v0, distanceToCross, rebounded): #è mrua ma lo tratto come 
     t = distanceToCross / v0
     if rebounded:
         t *= 1.25
-        print("ciao coglione")
     return t
 
 def sendArduino(t, cross_x, cross_y, tMinor, pos_x, pos_y):
@@ -473,7 +472,6 @@ def sendArduino(t, cross_x, cross_y, tMinor, pos_x, pos_y):
             if (t <= totalTime or elapsedTime <= totalTime) and not tMinor:
                 hit_x = 150 if hit_x + 150 < max_x else hit_x
                 ser.write(f'{hit_x} {pos_y} strike\n'.encode())
-                #print("TI MINORRRRRR")
                 print(tMinor, pos_x, pos_y) 
                 pos_x = start_x
                 pos_y = start_y
@@ -567,7 +565,6 @@ def main():
                 
 
                 tMinor, pos_x, pos_y = sendArduino(timeToCross, cross_x, cross_y, tMinor, pos_x, pos_y)
-                #print(tMinor, pos_x, pos_y)
                 listCleared = False
 
             if listCleared and center_x >= 700 and not otherSide and not tMinor:
@@ -579,7 +576,6 @@ def main():
                     timer = time.perf_counter()
                     print("disco da avversario")
                 otherSide = True
-            #print(time.perf_counter() - timer)
             if otherSide and time.perf_counter() - timer > 2 and center_x >= 700 and not thrownAway:
                 
                 hit_x = int(-center_x + 1250)
@@ -621,11 +617,10 @@ if __name__ == "__main__":
 #                                                                                                     #
 # Robotica 2024-2025                                                                                  #
 #                                                                                                     #                                                                                           
-# Last edit: 28.10.2024 - 17:10                                                                       #
+# Last edit: 29.12.2024 - 12:32                                                                       #
 #                                                                                                     #
 # @fd                                                                                                 #
 #                                                                                                     #
 #                                                                                                     #
 #######################################################################################################
-
-##DA FARE !!!!! Calculate hit 
+ 
