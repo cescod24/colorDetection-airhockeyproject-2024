@@ -31,7 +31,6 @@ void otherSide(float x, float y);
 void setup() {
   Serial.begin(9600);
 
-  // Imposta la posizione iniziale dei motori
   stepper1.setCurrentPosition(0);
   stepper2.setCurrentPosition(0);
 
@@ -43,7 +42,6 @@ void setup() {
   while (!Serial.available()) {
   }
 
-  // Legge i dati dalla seriale
   String sX = Serial.readStringUntil(' ');
   String sY = Serial.readStringUntil('\n');
   sX.trim();
